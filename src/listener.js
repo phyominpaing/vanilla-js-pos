@@ -1,5 +1,8 @@
-const listener = () => {
-    
-}
+import { handleTheme } from "./handler";
+import { themeToggleBtn } from "./selectors";
 
-export default listener
+const listener = () => {
+  themeToggleBtn.addEventListener("click", handleTheme);
+};
+
+export default listener;
