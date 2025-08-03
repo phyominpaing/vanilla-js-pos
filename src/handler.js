@@ -1,4 +1,10 @@
-import { themeToggleDarkIcon, themeToggleLightIcon } from "./selectors";
+import { Drawer } from "flowbite";
+import { createNewCategoryBtn } from "./category";
+import {
+  categoryList,
+  themeToggleDarkIcon,
+  themeToggleLightIcon,
+} from "./selectors";
 
 export const handleTheme = () => {
   // toggle icons inside button
@@ -25,4 +31,19 @@ export const handleTheme = () => {
       localStorage.setItem("color-theme", "dark");
     }
   }
+};
+
+export const handleCreateCategoryForm = (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  categoryList.appendChild(
+    createNewCategoryBtn(formData.get("new_category_name"))
+  );
+  e.target.reset();
+  document.querySelector(`[data-drawer-hide="create-category-drawer"]`).click();
+
+  // e.target.closest("#create-category-drawer").querySelector(`[data-drawer-hide="create-category-drawer"]`).click();
+
+  // const drawer = new Drawer(document.querySelector("#create-category-drawer"));
+  // drawer.hide();
 };
