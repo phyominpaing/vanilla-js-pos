@@ -2,10 +2,12 @@ import { Drawer } from "flowbite";
 import { createNewCategoryBtn } from "./category";
 import {
   categoryList,
+  productList,
   productTemplate,
   themeToggleDarkIcon,
   themeToggleLightIcon,
 } from "./selectors";
+import { createProductCard } from "./product";
 
 export const handleTheme = () => {
   // toggle icons inside button
@@ -56,13 +58,13 @@ export const handleCreateProductForm = (e) => {
   console.log(formData.get("new_product_price"));
   console.log(formData.get("new_product_category"));
 
-  const productCard = productTemplate.cloneNode(true);
-  productCard.querySelector(".product-category-name").textContent =
-    formData.get("new_product_category");
-
-  productCard.querySelector(".product-name").textContent =
-    formData.get("new_product_name");
-
-  productCard.querySelector(".product-price").textContent =
-    formData.get("new_product_price");
+  productList.appendChild(
+    createProductCard({
+      title: formData.get("new_product_name"),
+      category: formData.get("new_product_category"),
+      price: formData.get("new_product_price"),
+    })
+  );
+  e.target.reset();
+  document.querySelector(`[data-drawer-hide="create-product-drawer"]`).click();
 };

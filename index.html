@@ -113,33 +113,7 @@
               </button>
             </div>
             <div class="col-span-5 overflow-y-auto">
-              <div id="product-list" class="grid grid-cols-3 gap-5">
-                <div
-                  class="product-card border bg-white border-gray-300 dark:border-gray-600 overflow-hidden rounded-md"
-                >
-                  <img
-                    src="/Best-Vanilla-Cake-Recipe-6.jpeg"
-                    class="h-36 w-full object-cover"
-                    alt=""
-                  />
-                  <div class="p-4">
-                    <span
-                      class="text-xs bg-blue-100 border-blue-600 border px-2 py-0.5 rounded-xl text-blue-700"
-                    >
-                      Cake
-                    </span>
-                    <h5 class="text-sm my-2 line-clamp-2">
-                      Berry Layered Mousse Cake
-                    </h5>
-                    <div class="flex items-center gap-2 text-gray-500">
-                      <i data-lucide="tag" class="size-4 text-yellow-600"></i>
-                      <p class="text-sm">
-                        <span class="font-mono">16,000</span> Kyats
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div id="product-list" class="grid grid-cols-3 gap-5"></div>
             </div>
           </div>
         </div>
@@ -477,7 +451,7 @@
         </form>
       </div>
 
-      <template id="#product-template">
+      <template id="product-template">
         <div
           class="product-card border bg-white border-gray-300 dark:border-gray-600 overflow-hidden rounded-md"
         >
@@ -496,7 +470,23 @@
               Berry Layered Mousse Cake
             </h5>
             <div class="flex items-center gap-2 text-gray-500">
-              <i data-lucide="tag" class="size-4 text-yellow-600"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-tag-icon lucide-tag size-4 text-yellow-600"
+              >
+                <path
+                  d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                />
+                <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+              </svg>
               <p class="text-sm">
                 <span class="font-mono product-price">16,000</span> Kyats
               </p>
