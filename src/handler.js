@@ -2,6 +2,7 @@ import { Drawer } from "flowbite";
 import { createNewCategoryBtn } from "./category";
 import {
   categoryList,
+  productTemplate,
   themeToggleDarkIcon,
   themeToggleLightIcon,
 } from "./selectors";
@@ -46,4 +47,22 @@ export const handleCreateCategoryForm = (e) => {
 
   // const drawer = new Drawer(document.querySelector("#create-category-drawer"));
   // drawer.hide();
+};
+
+export const handleCreateProductForm = (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  console.log(formData.get("new_product_name"));
+  console.log(formData.get("new_product_price"));
+  console.log(formData.get("new_product_category"));
+
+  const productCard = productTemplate.cloneNode(true);
+  productCard.querySelector(".product-category-name").textContent =
+    formData.get("new_product_category");
+
+  productCard.querySelector(".product-name").textContent =
+    formData.get("new_product_name");
+
+  productCard.querySelector(".product-price").textContent =
+    formData.get("new_product_price");
 };
