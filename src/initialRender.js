@@ -1,12 +1,10 @@
-import { createNewCategoryBtn } from "./category";
+import { createNewCategoryBtn, renderCategory } from "./category";
 import { categories, products } from "./constants";
 import { createProductCard } from "./product";
 import { categoryList, productList } from "./selectors";
 
 const initialRender = () => {
-  categories.forEach((el) => {
-    categoryList.appendChild(createNewCategoryBtn(el.title));
-  });
+ renderCategory(categories);
 
   products.forEach((el) => {
     productList.appendChild(createProductCard(el));

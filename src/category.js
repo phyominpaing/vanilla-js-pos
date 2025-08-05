@@ -1,3 +1,6 @@
+import { categories } from "./constants";
+import { categoryList } from "./selectors";
+
 export const createNewCategoryBtn = (categoryName) => {
   const btn = document.createElement("button");
   btn.textContent = categoryName;
@@ -12,3 +15,10 @@ export const createNewCategoryBtn = (categoryName) => {
 
   return btn;
 };
+
+export const renderCategory = (inputCategories) => {
+  categoryList.innerHTML = "";
+   inputCategories.forEach((el) => {
+    categoryList.appendChild(createNewCategoryBtn(el.title));
+  });
+}

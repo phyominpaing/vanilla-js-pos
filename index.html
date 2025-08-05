@@ -57,7 +57,7 @@
         </div>
       </header>
       <section class="flex-1 grid grid-cols-7">
-        <div
+        <div   
           class="h-full col-span-5 border-r border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-900 relative"
         >
           <button
@@ -112,8 +112,8 @@
                 <span>Create</span>
               </button>
             </div>
-            <div class="col-span-5 overflow-y-auto">
-              <div id="product-list" class="grid grid-cols-3 gap-5"></div>
+            <div class="col-span-5 overflow-scroll h-[560px]">
+              <div id="product-list" class="grid grid-cols-3 p-2 gap-5 "></div>
             </div>
           </div>
         </div>
@@ -457,19 +457,21 @@
         >
           <img
             src="/Best-Vanilla-Cake-Recipe-6.jpeg"
-            class="h-36 w-full object-cover"
+            class="h-36 w-full object-cover product-img"
             alt=""
           />
-          <div class="p-4">
-            <span
+          <div class="p-4 flex flex-col">
+          <div>
+              <span
               class="product-category-name text-xs bg-blue-100 border-blue-600 border px-2 py-0.5 rounded-xl text-blue-700"
             >
               Cake
             </span>
+          </div>
             <h5 class="text-sm my-2 line-clamp-2 product-name">
               Berry Layered Mousse Cake
             </h5>
-            <div class="flex items-center gap-2 text-gray-500">
+            <div class="flex items-center gap-2 text-gray-500 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
