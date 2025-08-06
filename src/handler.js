@@ -7,7 +7,9 @@ import {
   themeToggleDarkIcon,
   themeToggleLightIcon,
 } from "./selectors";
-import { createProductCard } from "./product";
+import { createProductCard, renderProduct } from "./product";
+import { LogIn } from "lucide";
+import { products } from "./constants";
 
 export const handleTheme = () => {
   // toggle icons inside button
@@ -68,3 +70,32 @@ export const handleCreateProductForm = (e) => {
   e.target.reset();
   document.querySelector(`[data-drawer-hide="create-product-drawer"]`).click();
 };
+
+export const handleSearchForm = (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  console.log(formData.get("search"));
+
+  // e.target.reset();
+};
+
+export const handleSearch = (e) => {
+  // // e.preventDefault();
+  // if (e.key === "Enter") {
+  //   console.log(e.target.value);
+  //  }
+
+  const q = e.target.value;
+  console.log(q);
+  renderProduct(products.filter((el) => {
+     return el.title.toLowerCase().search(q) != -1
+  }));
+  
+};
+
+
+export const handleCategoryList = (e) => {
+  
+}
