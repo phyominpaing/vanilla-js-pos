@@ -9,7 +9,7 @@ import {
 } from "./selectors";
 import { createProductCard, renderProduct } from "./product";
 import { LogIn } from "lucide";
-import { products } from "./constants";
+import { categories, products } from "./constants";
 
 export const handleTheme = () => {
   // toggle icons inside button
@@ -41,9 +41,11 @@ export const handleTheme = () => {
 export const handleCreateCategoryForm = (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  categoryList.appendChild(
-    createNewCategoryBtn(formData.get("new_category_name"))
-  );
+  const newCategory = {
+    id: categoryList[categories.length - 1].id + 1,
+    title: formData.get("new_category_name"),
+  };
+  categoryList.appendChild(createNewCategoryBtn(newCategory));
   e.target.reset();
   document.querySelector(`[data-drawer-hide="create-category-drawer"]`).click();
 
@@ -89,13 +91,33 @@ export const handleSearch = (e) => {
 
   const q = e.target.value;
   console.log(q);
-  renderProduct(products.filter((el) => {
-     return el.title.toLowerCase().search(q) != -1
-  }));
-  
+  renderProduct(
+    products.filter((el) => {
+      return el.title.toLowerCase().search(q.toLowerCase()) != -1;
+    })
+  );
 };
 
-
 export const handleCategoryList = (e) => {
-  
-}
+  const clickedCategory = e.target.innerText;
+
+  // remove all active classes
+  categoryList.childNodes.forEach((el) => {
+    el.classList.replace("bg-blue-400", "bg-transparent");
+    el.classList.replace("text-white", "text-gray-700");
+  });
+
+  // add active class
+  e.target.classList.replace("bg-transparent", "bg-blue-400");
+  e.target.classList.replace("text-gray-700", "text-white");
+
+  if (clickedCategory === "All") {
+    renderProduct(products);
+  } else {
+    renderProduct(
+      products.filter((el) => {
+        return el.category === clickedCategory;
+      })
+    );
+  }
+};
